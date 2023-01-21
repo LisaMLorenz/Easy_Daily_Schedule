@@ -3,6 +3,7 @@
 var currentDay = moment();
 $("#currentDay").text(currentDay.format('dddd, MMMM Do')).css('font-weight', 'bold');
 
-
+var input = document.getElementById("description");
+localStorage.setItem("server", input.val());
 
 
