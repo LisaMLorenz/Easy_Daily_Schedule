@@ -5,6 +5,7 @@ $("#currentDay").text(currentDay.format('dddd, MMMM Do')).css('font-weight', 'bo
 
 var currentHour = moment().hours(); // getting the current Hour and putting it in a variable
 console.log("It is: " + currentHour); // check if correct number is retrieved
+
 var hoursOfDayEls = document.getElementsByClassName('description');
 console.log(hoursOfDayEls);
 
@@ -33,21 +34,3 @@ function colorCoding(hoursOfDayEl, currentHour) { // if statement to get value f
         hoursOfDayEl.classList.add('future'); // to make it green
     }
 };
-
-
-
-
-//Function to store input with save button
-
-// let taskInPut = document.getElementsByClass("description"); //targets the text input field
-
-// let savingInput = function () {
-//     var taskInPut = this.getTextInput("description");
-
-//     for (let i = 0; i < taskInPut.length; i++) {
-//         taskInPut[i].addEventListener("keyup", event => { //whenever the keyboard key goes up value is taken
-//             localStorage.setItem("tasks", event.target.value) //and stored locally
-//         })
-//     };
-// }
-
