@@ -13,12 +13,12 @@ $("saveBtn").click(function () { //Function to store input with save button
 
     var taskInPut = document.querySelector('description');
     taskInPut.textContent = "\n" + JSON.stringify(dailyTasks, '\t', 2);
+
 }
 );
 
-$('saveBtn').click(function ()) {
+$('saveBtn').click(function () {
     dailyTasks.push(dailyTasks);
     localStorage.setItem('tasks', JSON.stringify(dailyTasks))
-}
+})
 
-addTaskToLocalStorage();
