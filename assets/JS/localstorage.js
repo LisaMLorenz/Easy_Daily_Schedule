@@ -19,21 +19,22 @@ $(".saveBtn").on("click", function () {
     localStorage.setItem(hour, inputValue);
 
     // Change the button text and color
-    if ($(this).text() === "Complete") {
+    if ($(this).text() === "Done!") {
         $(this).text("Save");
         $(this).css("background-color", "#06aed5")
+    } else if ($(this).text() === "Done?") {
+        $(this).text("Done!");
+        $(this).css("background-color", "green");
     } else {
         $(this).text("Done?");
-        $(this).css("background-color", "violet")
-
+        $(this).css("background-color", "violet");
     }
+
+    localStorage.setItem(hour + "-button", $(this).text());
+
 
     const saveButton = $(this);
 
-    var savedButtonValue = localStorage.getItem(hour + "-button");
-    if (savedButtonValue !== null) {
-        saveButton.text(savedButtonValue);
-    }
 
     // Check if the button text content is "Done?" and change the background color accordingly
     if (saveButton.textContent === "Done?") {
@@ -52,12 +53,13 @@ $(".saveBtn").on("click", function () {
     // bind a new click event with a different function
     $(this).click(function () {
         if ($(this).text() === "Done?") {
-          $(this).text("Done!");
-          $(this).css("background-color", "green");
+            $(this).text("Done!");
+            $(this).css("background-color", "green");
         } else {
-          $(this).text("Done?");
+            $(this).text("Done?");
+            $(this).css("background-color", "violet");
         }
-      });
+    });
 });
 
 // Add event listener to the text field to listen for any change in its value
@@ -86,8 +88,16 @@ $(".description").each(function () {
     var savedValue = localStorage.getItem(hour);
     if (savedValue !== null) {
         $(this).val(savedValue);
-        $(this).next("#saveBtn").text("Done?");
-        $(this).next('#saveBtn').css("background-color", "violet");
-        localStorage.setItem(hour + "-button", "Done?");
+
+    }
+
+    var savedButtonValue = localStorage.getItem(hour + "-button");
+    if (savedButtonValue !== null) {
+        $(this).next('#saveBtn').text(savedButtonValue);
+        if (savedButtonValue === "Done!") {
+            $(this).next('#saveBtn').css("background-color", "green");
+        } else if (savedButtonValue === "Done?") {
+            $(this).next('#saveBtn').css("background-color", "violet");
+        }
     }
 });
