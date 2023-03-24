@@ -39,7 +39,7 @@ textarea {
 }
 
 .row {
-  flex-basis: 100%
+  flex-basis: 100%;
   white-space: pre-wrap;
   height: 80px ;
   border-top: 1px solid white;
@@ -89,4 +89,13 @@ textarea {
   float: left;
   width: 10px;
   height: 40px;
+}
+
+#save-btn {
+  background-color: green;
+  color: white;
+}
+
+#save-btn.delete {
+  background-color: red !important;
 }
